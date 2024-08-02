@@ -33,6 +33,10 @@ The blue line is the predicted response, rePhase will write a red line of it's c
 
 Save the rePhase settings (File/Save Settings As ...) so that the Phase can be manipulated later. Double clicking on a saved .rephase file will fire up a new instance of rePhase with all settings loaded ready for further modification.
 
+Here are the Mid and Hi rePhase screen shots
+![alt text](<rePhase Mid XO before any Phase Fix.jpg>)
+
+![alt text](<rePhase XO-Hi-Dec-4-LR48-HP3600Hz-4096T-before-PF1.jpg>)
 
 ### Import the XO filters to CamillaDSP
 
