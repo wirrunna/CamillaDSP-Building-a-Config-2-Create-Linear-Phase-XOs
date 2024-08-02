@@ -21,7 +21,7 @@ The "Impulse Settings" panel needs to be altered, the settings I use here are a 
 
 4096 taps doesn't add too much delay while giving accurate results. I use the same number of taps on each driver so that the delay is the same. 
 
-The rules of thumb are the lower the frequency the more taps you need and the more pre-ringing you get and never manipulate the phase below 100Hz. Make sure that the rate is the same as in CamillaDSP and that the format is 64 bits IEEE-754 (.dbl).
+The rules of thumb are the lower the frequency the more taps you need and the more pre-ringing you get, and never manipulate the phase below 100Hz. Make sure that the rate is the same as in CamillaDSP and that the format is 64 bits IEEE-754 (.dbl).
 
 The "Ranges" panel is used to make the graph more meaningful by defining "from to" frequency, db and degrees, while the "Measurement" panel is used after importing a REW measurement.
 
@@ -29,9 +29,9 @@ When you click Generate, rePhase will calculate the FIR filter with the filename
 
 These settings work for me, maybe a rePhase guru could suggest better.
 
-The blue line is the predicted response, rePhase will write a red line of it's calculated result. The resulting .dbl file is copied to /home/camilla/camilladsp/coeffs. Again my filenames are (pedantic) descriptors.
+The blue line is the predicted response, rePhase will write a red line of it's calculated result. The resulting .dbl file will be imported by the CamillaDSP GUI to /home/camilla/camilladsp/coeffs. Again my filenames are (pedantic) descriptors.
 
-Save the rePhase settings (File/Save Settings As ...) so that the Phase can be manipulated later. Double clicking on a saved .rephase file will fire up a new instance of rePhase with all settings loaded ready for further modification.
+Save the rePhase settings (File/Save Settings As ...) so that the Phase can be manipulated later. Double clicking on a saved .rephase file will fire up a new instance of rePhase with all settings loaded ready for further modification (adding Phase Fix in a later step).
 
 Here are the Mid and Hi rePhase screen shots
 ![alt text](<Images/rePhase Mid XO before any Phase Fix.jpg>)
@@ -41,15 +41,12 @@ Here are the Mid and Hi rePhase screen shots
 ### Import the XO filters to CamillaDSP
 
 To transfer the generated .dbl file to CamillaDSP, open the Files tab in the CamillaDSP gui, scroll down past the Configs to the Filters section and click the "Upload Files" box
- CamillaDSP gui showing upload files button.jpg
 ![alt text](<Images/CamillaDSP gui showing upload files button.jpg>) 
 
 Navigate to the directory where you saved the XO .dbl file, select it and click "open" to import it to the CamillaDSP Filters section. The .rephase files are the saved settings files, double click on one of them and rePhase is fired up and the settings loaded.
- CamillaDSP gui showing upload files select.jpg
 ![alt text](<Images/CamillaDSP gui showing upload files select.jpg>)
 
 Here are the XO Filters in CamillaDSP.
- Config showing dbl files.jpg
 ![alt text](<Images/Config showing dbl files.jpg>)
 
 and here is a screenshot of a portion of the Filter tab showing how an XO Filter is built using the .dbl file. To add a XO filter, click the green "+" at the end of the filter list, name your filter, select type "Conv" and subtype "Raw", then click the File lookup icon - the middle icon on the left in the filter box - and select the appropriate XO.dbl file.
@@ -59,19 +56,15 @@ and here is a screenshot of a portion of the Filter tab showing how an XO Filter
 Note that my mid and hi XOs have a suffix of PFn meaning Phase Fix n, more about that later.
 
 The top icon on the left will show the plot of the filter, in this case Mid XO.
-CamillaDSP gui showing plot of mid XO.jpg
 ![alt text](<Images/CamillaDSP gui showing plot of mid XO.jpg>)
 
 The last step is to add the XO filter to the pipeline.
-CamillaDSP gui add a pipeline step.jpg
 ![alt text](<Images/CamillaDSP gui add a pipeline step.jpg>)
 
 Here is the pipeline showing XOs and Biquad EQ filters with the filters collapsed for clarity.
-CamillaDSP gui pipeline plot  T30 PEQs XO.jpg
 ![alt text](<Images/CamillaDSP gui pipeline plot  T30 PEQs XO.jpg>)
 
 Here is a REW measurement Full System (FS) 20-20,000Hz of the UL5 T31 Biquads with XOs config.
-Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg
 ![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
 
 Next step is to set Gain and Delay for each driver and invert phase if needed. The suck out between 3 and 4kHz is a classic indication of a driver out of phase and confirmed by the green phase plot showing 180 degree phase change around the 3600Hz XO.
