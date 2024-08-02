@@ -13,9 +13,11 @@ rePhase showing Linear Phase Filter for bass low pass filter.
 
 Visit https://rephase.org/ and download rePhase and install.
 
-Open rePhase and start by selecting the "Linear Phase Filters" tab, select type - either low or high pass, the slope from the drop down list, the param is the steepness in dB per octave and finally the frequency of the crossover. 
+Open rePhase and start by selecting the "Linear Phase Filters" tab, select type - either low or high pass, the shape from the drop down list, the param is the steepness in dB per octave and finally the frequency of the crossover. 
 
 A bass XO will normally be just a single low pass while a mid XO will have a high pass and a low pass. rePhase will draw the predicted response in blue as the data is input. There is a lot of debate for and against steep slope filters, I use them as I have read that they reduce lobing from adjacent driver interference and they sound good.
+
+There is also endless debate about shape. With software defined XOs you should experiment and try a whole bunch of different shapes and slopes.
 
 The "Impulse Settings" panel needs to be altered, the settings I use here are a good starting point for CamillaDSP FIR filters. At the very least, fill in the "taps", "rate", "format", "filename" and "directory". 
 
