@@ -34,44 +34,44 @@ The blue line is the predicted response, rePhase will write a red line of it's c
 Save the rePhase settings (File/Save Settings As ...) so that the Phase can be manipulated later. Double clicking on a saved .rephase file will fire up a new instance of rePhase with all settings loaded ready for further modification.
 
 Here are the Mid and Hi rePhase screen shots
-![alt text](<rePhase Mid XO before any Phase Fix.jpg>)
+![alt text](<Images/rePhase Mid XO before any Phase Fix.jpg>)
 
-![alt text](<rePhase XO-Hi-Dec-4-LR48-HP3600Hz-4096T-before-PF1.jpg>)
+![alt text](<Images/rePhase XO-Hi-Dec-4-LR48-HP3600Hz-4096T-before-PF1.jpg>)
 
 ### Import the XO filters to CamillaDSP
 
 To transfer the generated .dbl file to CamillaDSP, open the Files tab in the CamillaDSP gui, scroll down past the Configs to the Filters section and click the "Upload Files" box
  CamillaDSP gui showing upload files button.jpg
-![alt text](<CamillaDSP gui showing upload files button.jpg>) 
+![alt text](<Images/CamillaDSP gui showing upload files button.jpg>) 
 
 Navigate to the directory where you saved the XO .dbl file, select it and click "open" to import it to the CamillaDSP Filters section. The .rephase files are the saved settings files, double click on one of them and rePhase is fired up and the settings loaded.
  CamillaDSP gui showing upload files select.jpg
-![alt text](<CamillaDSP gui showing upload files select.jpg>)
+![alt text](<Images/CamillaDSP gui showing upload files select.jpg>)
 
 Here are the XO Filters in CamillaDSP.
  Config showing dbl files.jpg
-![alt text](<Config showing dbl files.jpg>)
+![alt text](<Images/Config showing dbl files.jpg>)
 
 and here is a screenshot of a portion of the Filter tab showing how an XO Filter is built using the .dbl file. To add a XO filter, click the green "+" at the end of the filter list, name your filter, select type and subtype, then click the File lookup icon - the middle icon on the left in the filter box - and select the XO.dbl file.
  Config showing Conv filters for XO.jpg
-![alt text](<Config showing Conv filters for XO.jpg>)
+![alt text](<Images/Config showing Conv filters for XO.jpg>)
 
 Note that the mid and hi XO have a suffix of PFn meaning Phase Fix n, more about that later.
 
 The top icon on the left will show the plot of the filter, in this case Mid XO.
  CamillaDSP gui showing plot of mid XO.jpg
-![alt text](<CamillaDSP gui showing plot of mid XO.jpg>)
+![alt text](<Images/CamillaDSP gui showing plot of mid XO.jpg>)
 
 The last step is to add the XO filter to the pipeline.
  CamillaDSP gui add a pipeline step.jpg
-![alt text](<CamillaDSP gui add a pipeline step.jpg>)
+![alt text](<Images/CamillaDSP gui add a pipeline step.jpg>)
 
 Here is the pipeline showing XOs and Biquad EQ filters with the filters collapsed for clarity.
  CamillaDSP gui pipeline plot  T30 PEQs XO.jpg
-![alt text](<CamillaDSP gui pipeline plot  T30 PEQs XO.jpg>)
+![alt text](<Images/CamillaDSP gui pipeline plot  T30 PEQs XO.jpg>)
 
 Here is a REW measurement Full System (FS) 20-20,000Hz of the UL5 T31 Biquads with XOs config.
  Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg
-![alt text](<Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
+![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
 
 Next step is to set Gain and Delay for each driver and invert phase if needed. The suck out between 3 and 4kHz is a classic indication of a driver out of phase and confirmed by the green phase plot showing 180 degree phase change around the 3600Hz XO.
