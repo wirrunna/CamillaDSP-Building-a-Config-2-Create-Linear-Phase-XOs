@@ -70,3 +70,5 @@ Here is a REW measurement Full System (FS) 20-20,000Hz of the UL5 T31 Biquads wi
 ![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
 
 Next step is to set Gain and Delay for each driver and invert phase if needed. The suck out between 3 and 4kHz is a classic indication of a driver out of phase and confirmed by the green phase plot showing 180 degree phase change around the 3600Hz XO.
+
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
