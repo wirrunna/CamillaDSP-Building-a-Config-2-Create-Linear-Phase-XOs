@@ -1,5 +1,5 @@
 # CamillaDSP-Building-a-Config-2 Add Linear Phase XOs
-## 2. Create Linear Phase XOs in Rephase and Add to the Pipeline in CamillaDSP
+## 2. Create Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP
 
 CamillaDSP supports FIR Filters, so I use rePhase to define the XO filters. The main advantage of rePhase is its Linear Phase filters that do not alter the phase response of the drivers. Also, in a step later in the process I use rePhase to flatten the phase response once I have time aligned and set gains of the drivers. Rather than create another FIR filter in the pipeline, I reload the XO filter in rePhase and add the phase manipulation.
 
